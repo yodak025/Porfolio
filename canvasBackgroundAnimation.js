@@ -1,0 +1,42 @@
+class CanvasBackground {
+    constructor(h, w, canvasId){
+        this.canvas = document.getElementById(canvasId);
+        this.canvas.width = w;
+        this.canvas.height = h;
+
+        this.dimensions = {
+            height: h,
+            width: w
+        }
+
+        this.ctx = this.canvas.getContext('2d');
+    }
+
+    getRandomPosition(){ 
+        return {
+            x: Math.floor(Math.random() * this.dimensions.width),
+            y: Math.floor(Math.random() * this.dimensions.height)
+        }
+    }
+        
+
+    draw(){
+        let position = this.getRandomPosition();
+
+        this.ctx.beginPath();
+        this.ctx.arc(position.x, position.y, 2, 0, Math.PI * 2);
+        this.ctx.fillStyle = "white";
+        this.ctx.fill();
+        this.ctx.closePath();
+
+        setTimeout(() => {
+            this.ctx.beginPath();
+        this.ctx.arc(position.x, position.y, 2.5, 0, Math.PI * 2);
+        this.ctx.fillStyle = "black";
+        this.ctx.fill();
+        this.ctx.closePath();
+        
+        }, 15000);
+        window.requestAnimationFrame(() => this.draw());
+    }
+}

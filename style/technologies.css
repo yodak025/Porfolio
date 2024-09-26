@@ -1,0 +1,46 @@
+#technologies-selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--blue1);
+    margin: 30px;
+    
+}
+
+.decoration-icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange);
+    
+    padding:50px;
+}
+
+
+
+/*
+different displays presetted as None
+*/
+
+#javascript{
+    display: none;
+}
+
+#webdev{
+    display: none;
+}
+
+#python{
+    display: none;
+}
+
+#matlab{
+    display: none;
+}
+
+#swift{
+    display: none;
+}

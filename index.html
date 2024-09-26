@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/colors.css">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/technologies.css">
+    <link rel="stylesheet" href="style/projects.css">
+    <link rel="stylesheet" href="style/skills.css">
+
+    <script src="display.js"></script>
+    <script src="canvasBackgroundAnimation.js"></script>
+    
+    <title>Portafolio</title>
+</head>
+
+<body>
+    <canvas id="background-canvas">
+    </canvas>
+    <script>
+        let background = new CanvasBackground(window.innerHeight, window.innerWidth, "background-canvas");
+
+        background.draw();
+    </script>
+    
+
+    <main>
+        <header class="section" id="header">
+            <img src="photos/photo.jpg" alt="photography" style="height: 350px;">
+            <article id="header-content">
+                <h1>Diego Sota</h1>
+                <h3>Ingeniería de Sistemas Audiovisuales</h3>
+                <aside class="contact-icons">
+                    <a href="https://www.linkedin.com/in/diego-sota-a4a09a286/">
+                        <img src="/icons/linkedin-icon.png" class="icon" alt="LinkedIn">
+                    </a>
+                    <a href="mailto:diego.sota@gmail.com">
+                        <img src="/icons/gmail-icon.png" class="icon" alt="Gmail">
+                    </a>
+                    <a href="https://github.com/yodak025">
+                        <img src="/icons/github-icon.png" class="icon" alt="GitHub">
+                    </a>
+                    <a href="path/to/cv.pdf">
+                        <img src="icons/provisional-cv-icon.png" class="icon" alt="CV">
+                    </a>
+                </aside>
+            </article>
+        </header>
+
+
+        <section class="section" id="about-me">
+            <h2>Sobre mí</h2>
+            <p>Soy estudiante del Grado en Ingeniería en Sistemas Audiovisuales en la Universidad Rey Juan Carlos. 
+                Tengo un gran interés profesional por el sonido y el desarrollo de aplicaciones y experiencias audiovisuales en la red. 
+                Me considero una persona tranquila, perseverante y ambiciosa. 
+                Durante mi formación he adquirido destrezas a la hora de trabajar en equipo y estoy deseando tener la oportunidad de participar en un proyecto profesional.</p>
+        </section>
+
+
+        <section class="section" id="technologies">
+            <h2>Tecnologías</h2>
+
+            <nav class="selector" id="technologies-selector">
+                <img src="icons/javascript-icon.png" class="icon" id="javascript-icon">
+                <img src="icons/webdev-icon.png" class="icon" id="webdev-icon">
+                <img src="icons/python-icon.png" class="icon" id="python-icon">
+                <img src="icons/matlab-icon.png" class="icon" id="matlab-icon">
+                <img src="icons/swift-icon.png" class="icon" id="swift-icon">
+            </nav>
+
+            <section class="display" id="javascript">
+                <nav class="decoration-icons">
+                    <img src="icons/javascript-icon.png" class="icon">
+                    <img src="icons/threejs-icon.png" class="icon">
+                    <img src="icons/webrtc-icon.png" class="icon">
+                </nav>
+                <article class="paragraph">
+                    Tengo un año de experiencia con JavaScript. Además, estoy familiarizado con el uso de webRTC para la transmisión de audio y video en tiempo real en el lado del cliente. También he trabajado con la librería three.js para la creación de gráficos 3D en la web.
+                    
+                </article>
+            </section>
+
+            <section class="display" id="webdev">
+                <nav class="decoration-icons">
+                    <img src="icons/css-icon.png" class="icon">
+                    <img src="icons/html-icon.png" class="icon">
+
+                </nav>
+                <article class="paragraph">
+                    Tengo experiencia de un año en el desarrollo web. He trabajado con HTML y CSS para la creación de páginas web. Me gustaría seguir aprendiendo sobre el desarrollo web y mejorar mis habilidades en este campo.
+                </article>
+            </section>
+
+            <section class="display" id="python">
+                <nav class="decoration-icons">
+                    <img src="icons/python-icon.png" class="icon">
+                    <img src="icons/numpy-icon.png" class="icon">
+                    <img src="icons/webrtc-icon.png" class="icon">
+                </nav>
+                <article class="paragraph">
+                    Tengo 3 años de experiencia en python. Durante este tiempo he desarrollado programas en red cliente-servidor sobre UDP. También he trabajado con la librería numpy para el procesamiento de señales de audio y su clasificación utilizando librerias como scikit learn o librosa. Además, he trabajado con webRTC para la transmisión de audio y video en tiempo real en el lado del servidor.    
+                </article>
+            </section>
+
+            <section class="display" id="matlab">
+                <nav class="decoration-icons">
+                    <img src="icons/matlab-icon.png" class="icon">
+
+                </nav>
+                <article class="paragraph">
+                    Tengo 3 años de experiencia intermitente en MATLAB. He tenido acceso a algunos cursos oficiales de Mathworks. 
+                    <ul>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=91f17e63-98ad-4ca8-a0f5-77ebfccfd9f6&'">
+                            MATLAB OnRamp</li>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=5730d893-e2d7-4f32-a3a1-867a312521b4&'">
+                            MATLAB Fundamentals</li>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=7fd9a5a7-00d6-4db8-98cc-6a9e7aeba27d&'">
+                            MATLAB OOP OnRamp</li>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=e84a6ee4-2a7d-4314-b8df-55a47c7baf18&'">
+                            MATLAB App Building OnRamp</li>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=5fdb5647-a7eb-403c-a728-fe75aab239f0&'">
+                            MATLAB Signal Processing OnRamp</li>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=bc250607-e527-4bc0-86b0-62ad5a7d4fc5&'">
+                            MATLAB Introduction to Symbolic Math</li>
+                        <li class="link"
+                            onclick="location.href='https://matlabacademy.mathworks.com/progress/share/certificate.html?id=1f2a4cb3-84f4-40ed-9128-1211abff33cf&'">
+                            MATLAB Optimization OnRamp</li>
+                    </ul>   
+                </article>
+            </section>
+
+            <section class="display" id="swift">
+                <nav class="decoration-icons">
+                    <img src="icons/swift-icon.png" class="icon">
+                </nav>
+                <article class="paragraph">
+                    trabajé con Swift durante seis meses. No tengo demasiada experiencia con este lenguaje, pero conozco sus fundamentos y tengo interés en el mismo.
+                </article>
+
+                <script>
+                    let technologiesController = new Display(
+                        createPairs(
+                            ["javascript-icon", "webdev-icon", "python-icon", "matlab-icon", "swift-icon"], 
+                            ["javascript", "webdev", "python", "matlab", "swift"]
+                        )
+                    );
+                </script>
+
+            </section>
+            
+
+        </section>
+        <section class="section", id="projects">
+            <h1>Proyectos</h1>
+            <div class="display">
+
+                <aside class="selector">
+                    <div class="card" id="mastermind-card">
+                        <h3>Master Mind</h3>
+                        <p>Distintas Versiones</p>
+                    </div>
+    
+                    <div class="card" id="pacman-card">
+                        <h3>Pac-Man 3D</h3>
+                        <p>Juego en la web</p>
+                    </div>
+    
+                    <div class="card" id="house-card">
+                        <h3>Casa Giratoria</h3>
+                        <p>Modelo 3D en la web</p>
+                    </div>
+    
+                    <div class="card" id="pia-card">
+                        <h3>Proyecto de Ingeniería Acústica</h3>
+                        <p>Estudio acústico ambiental.</p>
+                    </div>
+    
+                    <div class="card" id="streamer-card">
+                        <h3>Red de Servidores de Video</h3>
+                        <p>Implementa el protocolo SIP</p>
+                    </div>
+    
+                    <div class="card" id="naive-vocals-card">
+                        <h3>Clasificador de Vocales</h3>
+                        <p>Detección con Naive Bayes</p>
+                    </div>
+                </aside>
+    
+    
+                <article>
+                    <section class="paragraph" id="mastermind">
+                        <h1>Master Mind</h1>                       
+                    </section>
+
+                    <section class="paragraph" id="pacman">
+                        <h1>Pac-Man 3D</h1>
+                    </section>
+
+                    <section class="paragraph" id="house">
+                        <h1>Casa 3D</h1>
+                    </section>
+
+                    <section class="paragraph" id="pia">
+                        <h1>Proyecto de Ingeniería Acústica</h1>
+                    </section>
+
+                    <section class="paragraph" id="streamer">
+                        <h1>Red de Servidores de Video</h1>
+                    </section>
+
+                    <section class="paragraph" id="naive-vocals">
+                        <h1>Clasificador de Vocales</h1>
+                    </section>
+                </article>
+            </div>
+            
+            <script>
+                let projectsController = new Display(
+                    createPairs(
+                        ["mastermind-card", "pacman-card", "house-card", "pia-card", "streamer-card", "naive-vocals-card"], 
+                        ["mastermind", "pacman", "house", "pia", "streamer", "naive-vocals"]
+                    )
+                );
+
+            </script>
+
+        </section>
+
+
+        <section class="section">
+            <h1>Habilidades y Conocimientos</h1>
+            
+
+            <div class="display">
+                <nav class="selector">
+                    <img src="icons/audio-icon.png" class="icon" id="audio-icon">
+                    <img src="icons/image-and-video-icon.png" class="icon" id="image-and-video-icon">
+                    <img src="icons/electronics-icon.png" class="icon" id="electronics-icon">
+                    <img src="icons/music-icon.png" class="icon" id="music-icon">
+                    <img src="icons/car-icon.png" class="icon" id="car-icon">
+                </nav>
+                <article class="paragraph" id="audio">
+                    <h1>Audio</h1>
+                    <ul>
+                        <li>Conocimientos avanzados de acústica arquitectónica y en exteriores.</li>
+                        <li>Conocimientos de electroacústica analógica.</li>
+                        <li>Experiencia con algoritmos de aprendizaje máquina para la clasificación de audio.</li>
+                        <li>Manejo de los estándares de codificación de audio.</li>
+                        <li>Conocimientos avanzados de teoría de la señal particularizados para el análisis de audio</li>
+                    </ul>
+                </article>
+
+                <article class="paragraph" id="image-and-video">
+                    <h1>Imagen y Vídeo</h1>
+                    <ul>
+                        <li>Manejo de los distintos espacios de color.</li>
+                        <li>Nociones de Segmentación de imágenes y operaciones morfológicas.</li>
+                        <li>Manejo de los estándares de codificación de vídeo.</li>
+                        <li>Visión por computador.</li>
+                    </ul>
+                </article>
+
+                <article class="paragraph" id="electronics">
+                    <h1>Electrónica</h1>
+                    <ul>
+                        <li>Conocimientos de electrónica analógica y digital.</li>
+                        <li>Experiencia programando la FPGA “Basys 2” mediante VHDL.</li>
+                        <li>Nociones de arquitectura de computadores .</li>
+                    </ul>
+                </article>
+
+                <article class="paragraph" id="music">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elit felis, commodo at vulputate eget, mattis ut libero. Mauris eleifend facilisis odio, non ullamcorper ipsum pretium sed. Mauris eget lobortis purus, sed luctus dui. Etiam sed pulvinar ligula, quis ornare magna. Suspendisse consequat congue tortor, a ornare tellus finibus ut. Cras bibendum, nunc sed pretium porttitor, erat sapien hendrerit tortor, sed luctus libero dui quis tortor. Nunc sed pulvinar felis, sed volutpat enim. Sed pretium enim blandit metus porttitor eleifend. Proin fringilla laoreet scelerisque.
+
+                    Fusce maximus est eu lacus sodales malesuada. Vivamus vel mi vitae tellus tincidunt condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum magna elit, non posuere elit eleifend eget. Vivamus convallis congue dolor, sed lobortis ipsum consectetur cursus. Suspendisse ultrices imperdiet tellus, eu posuere tellus egestas et. Phasellus vel nisi ultrices, consequat dui nec, dignissim augue. Suspendisse luctus non magna non congue. Praesent interdum faucibus dui quis vehicula. Pellentesque eu dignissim nisl. Nullam condimentum pulvinar fringilla. Curabitur ut dui nec ex tincidunt pulvinar. Duis tincidunt malesuada sapien ut dictum. Donec convallis ullamcorper nisl a semper. Pellentesque nec nibh eu orci dignissim venenatis. Etiam aliquet odio eu viverra efficitur.
+
+                    Nunc a lorem ante. Suspendisse aliquet vitae lectus ac pharetra. Vivamus quis ex vel nisl scelerisque faucibus quis sed velit. Morbi enim magna, vehicula vitae venenatis id, congue sit amet ex. Ut in posuere leo. Nullam in orci sit amet felis vulputate feugiat. Ut arcu risus, facilisis nec tincidunt vitae, volutpat ac justo. Quisque accumsan tincidunt mi, nec porta diam mollis non. Vivamus eget nunc arcu. Mauris laoreet, lacus sit amet blandit malesuada, diam velit malesuada odio, rhoncus aliquam justo eros non felis. Cras tristique, neque sed elementum feugiat, urna orci convallis dui, ut tincidunt magna ligula sit amet ex. Morbi ac nunc ac lectus aliquam porta a ac leo. Praesent non blandit est.
+
+                </article>
+
+                <article class="paragraph" id="car">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elit felis, commodo at vulputate eget, mattis ut libero. Mauris eleifend facilisis odio, non ullamcorper ipsum pretium sed. Mauris eget lobortis purus, sed luctus dui. Etiam sed pulvinar ligula, quis ornare magna. Suspendisse consequat congue tortor, a ornare tellus finibus ut. Cras bibendum, nunc sed pretium porttitor, erat sapien hendrerit tortor, sed luctus libero dui quis tortor. Nunc sed pulvinar felis, sed volutpat enim. Sed pretium enim blandit metus porttitor eleifend. Proin fringilla laoreet scelerisque.
+
+                    Fusce maximus est eu lacus sodales malesuada. Vivamus vel mi vitae tellus tincidunt condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum magna elit, non posuere elit eleifend eget. Vivamus convallis congue dolor, sed lobortis ipsum consectetur cursus. Suspendisse ultrices imperdiet tellus, eu posuere tellus egestas et. Phasellus vel nisi ultrices, consequat dui nec, dignissim augue. Suspendisse luctus non magna non congue. Praesent interdum faucibus dui quis vehicula. Pellentesque eu dignissim nisl. Nullam condimentum pulvinar fringilla. Curabitur ut dui nec ex tincidunt pulvinar. Duis tincidunt malesuada sapien ut dictum. Donec convallis ullamcorper nisl a semper. Pellentesque nec nibh eu orci dignissim venenatis. Etiam aliquet odio eu viverra efficitur.
+
+                    Nunc a lorem ante. Suspendisse aliquet vitae lectus ac pharetra. Vivamus quis ex vel nisl scelerisque faucibus quis sed velit. Morbi enim magna, vehicula vitae venenatis id, congue sit amet ex. Ut in posuere leo. Nullam in orci sit amet felis vulputate feugiat. Ut arcu risus, facilisis nec tincidunt vitae, volutpat ac justo. Quisque accumsan tincidunt mi, nec porta diam mollis non. Vivamus eget nunc arcu. Mauris laoreet, lacus sit amet blandit malesuada, diam velit malesuada odio, rhoncus aliquam justo eros non felis. Cras tristique, neque sed elementum feugiat, urna orci convallis dui, ut tincidunt magna ligula sit amet ex. Morbi ac nunc ac lectus aliquam porta a ac leo. Praesent non blandit est.
+
+                </article>
+
+                <article class="paragraph" id="dev">
+                    <h1>Programación: </h1>
+                    <ul>
+                        <li>Experiencia programando en diferentes lenguajes.</li>
+                        <li>Desarrollo de conexiones UDP cliente-servidor.</li>
+                        <li>Experiencia con programación asíncrona.</li>
+                        <li>Conocimientos de desarrollo web frontend.</li>
+                        <li>Creación de Gráficos 3D en la web.</li>
+                    </ul>
+                </article>
+
+                <article class="paragraph" id="network">
+                    <h1>Redes:</h1>
+                    <ul>
+                        <li>Conocimiento general de la arquitectura TCP/IP.</li>
+                        <li>Protocolos orientados a streaming.</li>
+                        <li>Conocimientos relacionados con la transmisión de señales.</li>
+                    </ul>
+                </article>
+
+                <article class="paragraph" id="organization">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elit felis, commodo at vulputate eget, mattis ut libero. Mauris eleifend facilisis odio, non ullamcorper ipsum pretium sed. Mauris eget lobortis purus, sed luctus dui. Etiam sed pulvinar ligula, quis ornare magna. Suspendisse consequat congue tortor, a ornare tellus finibus ut. Cras bibendum, nunc sed pretium porttitor, erat sapien hendrerit tortor, sed luctus libero dui quis tortor. Nunc sed pulvinar felis, sed volutpat enim. Sed pretium enim blandit metus porttitor eleifend. Proin fringilla laoreet scelerisque.
+
+                    Fusce maximus est eu lacus sodales malesuada. Vivamus vel mi vitae tellus tincidunt condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum magna elit, non posuere elit eleifend eget. Vivamus convallis congue dolor, sed lobortis ipsum consectetur cursus. Suspendisse ultrices imperdiet tellus, eu posuere tellus egestas et. Phasellus vel nisi ultrices, consequat dui nec, dignissim augue. Suspendisse luctus non magna non congue. Praesent interdum faucibus dui quis vehicula. Pellentesque eu dignissim nisl. Nullam condimentum pulvinar fringilla. Curabitur ut dui nec ex tincidunt pulvinar. Duis tincidunt malesuada sapien ut dictum. Donec convallis ullamcorper nisl a semper. Pellentesque nec nibh eu orci dignissim venenatis. Etiam aliquet odio eu viverra efficitur.
+
+                    Nunc a lorem ante. Suspendisse aliquet vitae lectus ac pharetra. Vivamus quis ex vel nisl scelerisque faucibus quis sed velit. Morbi enim magna, vehicula vitae venenatis id, congue sit amet ex. Ut in posuere leo. Nullam in orci sit amet felis vulputate feugiat. Ut arcu risus, facilisis nec tincidunt vitae, volutpat ac justo. Quisque accumsan tincidunt mi, nec porta diam mollis non. Vivamus eget nunc arcu. Mauris laoreet, lacus sit amet blandit malesuada, diam velit malesuada odio, rhoncus aliquam justo eros non felis. Cras tristique, neque sed elementum feugiat, urna orci convallis dui, ut tincidunt magna ligula sit amet ex. Morbi ac nunc ac lectus aliquam porta a ac leo. Praesent non blandit est.
+
+                </article>
+
+                <article class="paragraph" id="cooking">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elit felis, commodo at vulputate eget, mattis ut libero. Mauris eleifend facilisis odio, non ullamcorper ipsum pretium sed. Mauris eget lobortis purus, sed luctus dui. Etiam sed pulvinar ligula, quis ornare magna. Suspendisse consequat congue tortor, a ornare tellus finibus ut. Cras bibendum, nunc sed pretium porttitor, erat sapien hendrerit tortor, sed luctus libero dui quis tortor. Nunc sed pulvinar felis, sed volutpat enim. Sed pretium enim blandit metus porttitor eleifend. Proin fringilla laoreet scelerisque.
+
+                    Fusce maximus est eu lacus sodales malesuada. Vivamus vel mi vitae tellus tincidunt condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum magna elit, non posuere elit eleifend eget. Vivamus convallis congue dolor, sed lobortis ipsum consectetur cursus. Suspendisse ultrices imperdiet tellus, eu posuere tellus egestas et. Phasellus vel nisi ultrices, consequat dui nec, dignissim augue. Suspendisse luctus non magna non congue. Praesent interdum faucibus dui quis vehicula. Pellentesque eu dignissim nisl. Nullam condimentum pulvinar fringilla. Curabitur ut dui nec ex tincidunt pulvinar. Duis tincidunt malesuada sapien ut dictum. Donec convallis ullamcorper nisl a semper. Pellentesque nec nibh eu orci dignissim venenatis. Etiam aliquet odio eu viverra efficitur.
+
+                    Nunc a lorem ante. Suspendisse aliquet vitae lectus ac pharetra. Vivamus quis ex vel nisl scelerisque faucibus quis sed velit. Morbi enim magna, vehicula vitae venenatis id, congue sit amet ex. Ut in posuere leo. Nullam in orci sit amet felis vulputate feugiat. Ut arcu risus, facilisis nec tincidunt vitae, volutpat ac justo. Quisque accumsan tincidunt mi, nec porta diam mollis non. Vivamus eget nunc arcu. Mauris laoreet, lacus sit amet blandit malesuada, diam velit malesuada odio, rhoncus aliquam justo eros non felis. Cras tristique, neque sed elementum feugiat, urna orci convallis dui, ut tincidunt magna ligula sit amet ex. Morbi ac nunc ac lectus aliquam porta a ac leo. Praesent non blandit est.
+
+                </article>
+
+                <article class="paragraph" id="languages">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elit felis, commodo at vulputate eget, mattis ut libero. Mauris eleifend facilisis odio, non ullamcorper ipsum pretium sed. Mauris eget lobortis purus, sed luctus dui. Etiam sed pulvinar ligula, quis ornare magna. Suspendisse consequat congue tortor, a ornare tellus finibus ut. Cras bibendum, nunc sed pretium porttitor, erat sapien hendrerit tortor, sed luctus libero dui quis tortor. Nunc sed pulvinar felis, sed volutpat enim. Sed pretium enim blandit metus porttitor eleifend. Proin fringilla laoreet scelerisque.
+
+                    Fusce maximus est eu lacus sodales malesuada. Vivamus vel mi vitae tellus tincidunt condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum magna elit, non posuere elit eleifend eget. Vivamus convallis congue dolor, sed lobortis ipsum consectetur cursus. Suspendisse ultrices imperdiet tellus, eu posuere tellus egestas et. Phasellus vel nisi ultrices, consequat dui nec, dignissim augue. Suspendisse luctus non magna non congue. Praesent interdum faucibus dui quis vehicula. Pellentesque eu dignissim nisl. Nullam condimentum pulvinar fringilla. Curabitur ut dui nec ex tincidunt pulvinar. Duis tincidunt malesuada sapien ut dictum. Donec convallis ullamcorper nisl a semper. Pellentesque nec nibh eu orci dignissim venenatis. Etiam aliquet odio eu viverra efficitur.
+
+                    Nunc a lorem ante. Suspendisse aliquet vitae lectus ac pharetra. Vivamus quis ex vel nisl scelerisque faucibus quis sed velit. Morbi enim magna, vehicula vitae venenatis id, congue sit amet ex. Ut in posuere leo. Nullam in orci sit amet felis vulputate feugiat. Ut arcu risus, facilisis nec tincidunt vitae, volutpat ac justo. Quisque accumsan tincidunt mi, nec porta diam mollis non. Vivamus eget nunc arcu. Mauris laoreet, lacus sit amet blandit malesuada, diam velit malesuada odio, rhoncus aliquam justo eros non felis. Cras tristique, neque sed elementum feugiat, urna orci convallis dui, ut tincidunt magna ligula sit amet ex. Morbi ac nunc ac lectus aliquam porta a ac leo. Praesent non blandit est.
+
+                </article>
+
+
+
+                <nav class="selector">
+                    <img src="icons/dev-icon.png" class="icon" id="dev-icon">
+                    <img src="icons/network-icon.png" class="icon" id="network-icon">
+                    <img src="icons/organization-icon.png" class="icon" id="organization-icon">
+                    <img src="icons/cooking-icon.png" class="icon" id="cooking-icon">
+                    <img src="icons/languages-icon.png" class="icon" id="languages-icon">
+                </nav>
+            </div>
+
+            <script>
+                let skillsController = new Display(
+                    createPairs(
+                        ["audio-icon", "image-and-video-icon", "electronics-icon", "music-icon", "car-icon", "dev-icon", "network-icon", "organization-icon", "cooking-icon", "languages-icon"], 
+                        ["audio", "image-and-video", "electronics", "music", "car", "dev", "network", "organization", "cooking", "languages"]
+                    )
+                );
+            </script>
+        </section>
+
+
+        <footer class="section">
+            <h3>Contacto</h3>
+            <aside class="contact-icons">
+                <a href="https://www.linkedin.com/in/diego-sota-a4a09a286/">
+                    <img src="/icons/linkedin-icon.png" class="icon" alt="LinkedIn">
+                </a>
+                <a href="mailto:diego.sota@gmail.com">
+                    <img src="/icons/gmail-icon.png" class="icon" alt="Gmail">
+                </a>
+                <a href="https://github.com/yodak025">
+                    <img src="/icons/github-icon.png" class="icon" alt="GitHub">
+                </a>
+                <a href="path/to/cv.pdf">
+                    <img src="icons/provisional-cv-icon.png" class="icon" alt="CV">
+                </a>
+            </aside>
+        </footer>    
+    </main>
+</body>
+
+
+
+</html>

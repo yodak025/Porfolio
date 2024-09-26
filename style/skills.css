@@ -1,0 +1,44 @@
+
+
+/*
+different displays presetted as None
+*/
+
+#audio{
+    display: none;
+}
+
+#image-and-video{
+    display: none;
+}
+
+#electronics{
+    display: none;
+}
+
+#music{
+    display: none;
+}
+
+#car{
+    display: none;
+}
+
+#dev{
+    display: none;
+}
+#network{
+    display: none;
+}
+
+#organization{
+    display: none;
+}
+
+#cooking{
+    display: none;
+}
+
+#languages{
+    display: none;
+}
