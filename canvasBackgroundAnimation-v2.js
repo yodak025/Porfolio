@@ -21,57 +21,135 @@ class CanvasBackground {
         this.ctx = this.canvas.getContext('2d');
     }
 
-    getRandomPosition(){ 
+    _generateParticle(){ 
         const qFactor = 10;
-        return {
+        let particle = {
             x: Math.floor(Math.random() * this.dimensions.width/qFactor)*qFactor,
-            y: Math.floor(Math.random() * this.dimensions.height/qFactor)*qFactor
+            y: Math.floor(Math.random() * this.dimensions.height/qFactor)*qFactor,
+            color: WHITE,
+            alpha: 0.0,
+            state: "growing"
+
+        }
+        this._appear(particle);
+
+        return particle
+    }
+
+    _appear(particle){
+        if(particle.alpha < 0.95){
+            particle.alpha += 0.01;
+            requestAnimationFrame(() => this._appear(particle));
+        }
+
+        else{
+            particle.state = "stable";
+        }
+        
+    }    
+
+    _disappear(particle){
+        if(particle.alpha > 0.1){
+            particle.alpha -= 0.01;
+            requestAnimationFrame(() => this._disappear(particle));
+        }
+        else{
+            this.particles.delete(particle);
+        }
+
+        
+    }
+
+    _blink(particle, counter = 0, max = 3, speed = 0.0025, phase = 0){
+        if(phase === 0){
+            if(particle.alpha > 0.05){
+                particle.alpha -= speed;
+                console.log(particle.alpha);
+                requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
+            }
+    
+            if(particle.alpha <= 0.05){
+                phase = 1;
+                requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
+            }
+
+        }
+        else if(phase === 1 ){
+            
+            if(phase === 1 && particle.alpha < 0.9){
+                particle.alpha += speed;
+                requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
+            }
+    
+            if(phase === 1 && particle.alpha >= 0.9){
+                phase = 0;
+                counter++;
+                if(counter < max){
+                    requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
+                }
+                else{
+                    particle.state = "stable";
+                }
+            }
         }
     }
-        
 
-    generate(time = 0){
-        if (time === 0){
+
+    generate(counter = 0, max = 1000){
+        if (counter === 0){
             console.log("Starting star generation");
         }
-        if (time <= 10000){
-            let position = this.getRandomPosition();
+        if (counter <= max){
+            let particle = this._generateParticle();
 
-            this.ctx.beginPath();
-            this.ctx.arc(position.x, position.y, 2, 0, Math.PI * 2);
-            this.ctx.fillStyle = WHITE;
-            this.ctx.fill();
-            this.ctx.closePath();
+            this.particles.add(particle);
 
-            this.particles.add(position);
+            console.log(`Generated ${counter} particles, ${max - counter} remaining`);
 
-            requestAnimationFrame((t) => this.generate(t));
+            requestAnimationFrame(() => this.generate(counter+ 1, max));
             
         } else{
             console.log("Generation completed");
         }
     }
     
-    disapear(position){
-        this.ctx.beginPath();
-        this.ctx.arc(position.x, position.y, 2.5, 0, Math.PI * 2);
-        this.ctx.fillStyle = BLACK;
-        this.ctx.fill();
-        this.ctx.closePath();
-        this.particles.delete(position);
-    }
-    
-    
-    
-    animate(){
 
-        if (Math.random()<0.25){
-            let particlesArray = Array.from(this.particles); // Convertir Set a array
-            let position = particlesArray[
+    animate(){
+        this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+
+        for (const particle of this.particles){
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
+            this.ctx.fillStyle = particle.color;
+            this.ctx.globalAlpha = particle.alpha;
+            this.ctx.fill();
+            this.ctx.closePath();
+        }
+        this.ctx.globalAlpha = 1.0;
+
+        if (Math.random()<0.1){
+            let particlesArray = Array.from(this.particles); // turn set into array
+            let particle = particlesArray[
                 Math.floor(Math.random() * particlesArray.length)
             ];
-            this.disapear(position);
+
+            if(particle.state === "stable"){
+                particle.state = "disappearing";
+                this._disappear(particle);
+            }
             
+            
+        }
+        else if(Math.random()<0.15){
+            let particlesArray = Array.from(this.particles); // turn set into array
+            let particle = particlesArray[
+                Math.floor(Math.random() * particlesArray.length)
+            ];
+
+            if(particle.state === "stable"){
+                particle.state = "blinking";
+                this._blink(particle);
+            }
         }
         requestAnimationFrame(() => this.animate());
     }
