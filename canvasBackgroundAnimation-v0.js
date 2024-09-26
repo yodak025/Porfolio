@@ -13,9 +13,10 @@ class CanvasBackground {
     }
 
     getRandomPosition(){ 
+        const qFactor = 10;
         return {
-            x: Math.floor(Math.random() * this.dimensions.width),
-            y: Math.floor(Math.random() * this.dimensions.height)
+            x: Math.floor(Math.random() * this.dimensions.width/qFactor)*qFactor,
+            y: Math.floor(Math.random() * this.dimensions.height/qFactor)*qFactor
         }
     }
         
