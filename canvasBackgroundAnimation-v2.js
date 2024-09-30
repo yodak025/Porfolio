@@ -65,13 +65,12 @@ class CanvasBackground {
             if(particle.alpha > 0.05){
                 particle.alpha -= speed;
                 console.log(particle.alpha);
-                requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
+                
             }
-    
-            if(particle.alpha <= 0.05){
+            else if(particle.alpha <= 0.05){
                 phase = 1;
-                requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
             }
+            requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
 
         }
         else if(phase === 1 ){
@@ -81,7 +80,7 @@ class CanvasBackground {
                 requestAnimationFrame(() => this._blink(particle, counter, max, speed, phase));
             }
     
-            if(phase === 1 && particle.alpha >= 0.9){
+            else if(phase === 1 && particle.alpha >= 0.9){
                 phase = 0;
                 counter++;
                 if(counter < max){
@@ -140,7 +139,7 @@ class CanvasBackground {
             
             
         }
-        else if(Math.random()<0.15){
+        else if(Math.random()<0.15){     //dry
             let particlesArray = Array.from(this.particles); // turn set into array
             let particle = particlesArray[
                 Math.floor(Math.random() * particlesArray.length)

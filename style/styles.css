@@ -1,3 +1,7 @@
+html{
+    font-size: larger;
+}
+
 main{
     display: flex;
     flex-direction: column;
@@ -10,7 +14,6 @@ main{
 .link {
     color: rgb(14, 0, 204);
     cursor: pointer;
-    
 }
 
 #background-canvas{
@@ -27,11 +30,20 @@ main{
 different displays presetted as None
 */
 .section{
-    width: 75%;
+    width: 60vw;
+    height: 60vh;
     background-color: var(--blue2);
     padding: 30px;
     margin: 30px;
 }
+
+.selector{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /*
 different displays presetted as None
 */
@@ -45,6 +57,8 @@ different displays presetted as None
 different displays presetted as None
 */
 .paragraph{
+    width: 50vw;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
