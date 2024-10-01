@@ -25,10 +25,10 @@ Constants:
 const G = 6.67430 * Math.pow(10, -11);
 const GALACTIC_SCALE_FACTOR = 50 * 1.989e30;
 const EXPLOSION_PARTICLES_MAX = 20;
-const INITIAL_PARTICLES = 40;
+const INITIAL_PARTICLES = 100;
 
 const DELTA_TIME_NORMALIZATION = 10000000000;
-const DISTANCE_NORMALIZATION = Math.pow(10, 2);
+const DISTANCE_NORMALIZATION = 10e2;
 
 const DENSITY = 10.0;
 const FRICTION_COEFFICIENT = 0.0005;
@@ -321,7 +321,7 @@ class CanvasBackgroundSystemController {
       if (particle.mass > 3 * 1.989e30){
         this.ctx.fillStyle = BLUE0;
       }
-      if (particle.getSpeedModule() > particle.mass*DELTA_TIME_NORMALIZATION*100000000000000000000/GALACTIC_SCALE_FACTOR) {
+      if (particle.getSpeedModule() > 10e8) {
         this.ctx.fillStyle = ORANGE;
       }
 
