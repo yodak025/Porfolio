@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style/skills.css">
 
     <script src="display.js"></script>
-    <script src="canvasBackgroundAnimation-v2.js"></script>
+    <script src="canvasBackgroundAnimation-v3.js"></script>
     
     <title>Portafolio</title>
 </head>
@@ -21,7 +21,10 @@
     <canvas id="background-canvas">
     </canvas>
     <script>
-        let background = new CanvasBackground(window.innerHeight, window.innerWidth, "background-canvas");
+        let canvas = document.getElementById("background-canvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let background = new CanvasBackgroundSystemController(canvas)
 
         background.generate();
         background.animate();
