@@ -23,15 +23,15 @@ Constants:
 
 */ 
 const G = 6.67430 * Math.pow(10, -11);
-const GALACTIC_SCALE_FACTOR = 50 * 1.989e30;
+const GALACTIC_SCALE_FACTOR = 70 * 1.989e30;
 const EXPLOSION_PARTICLES_MAX = 20;
-const INITIAL_PARTICLES = 100;
+const INITIAL_PARTICLES = 200;
 
-const DELTA_TIME_NORMALIZATION = 10000000000;
-const DISTANCE_NORMALIZATION = 10e2;
+const DELTA_TIME_NORMALIZATION = 1e3*1e5;
+const DISTANCE_NORMALIZATION = 1e7;
 
-const DENSITY = 10.0;
-const FRICTION_COEFFICIENT = 0.0005;
+const DENSITY = 9.0;
+
 
 
 const BLACK = "#000000";
@@ -54,19 +54,19 @@ function generateCelestialObjects() {
 
   // Proportions for each category
   const proportions = {
-    asteroids: 0.35,   // 40% asteroids
-    satellites: 0.5,  // 10% satellites
-    planets: 0.75,     // 30% planets
-    stars: 0.95,      // 15% stars
+    asteroids: 40,   // 40% asteroids
+    satellites: 50,  // 10% satellites
+    planets: 70,     // 30% planets
+    stars: 85,      // 15% stars
     blackHoles: 1  // 5% black holes
   };
 
   const massRanges = {
-  asteroids: { min: 1e10, max: 1e21, alpha: -2.5 },  // Mass in grams
-  satellites: { min: 1e16, max: 1e25, alpha: -1.5 }, // Mass in grams
-  planets: { min: 5.97e24, max: 1.898e27, alpha: -1.2 },  // Earth to Jupiter mass
+  asteroids: { min: 1e12, max: 1e15, alpha: -2 },  // Mass in grams
+  satellites: { min: 1e20, max: 1e23, alpha: -1.5 }, // Mass in grams
+  planets: { min: 5.97e24, max: 1.898e27, alpha: -1.5 },  // Earth to Jupiter mass
   stars: { min: 0.1 * 1.989e30, max: 50 * 1.989e30, alpha: -2.35 },  // 0.1 to 50 solar masses
-  blackHoles: { min: 3 * 1.989e30, max: 10e9 * 1.989e30, alpha: -2.0 }  // Stellar to supermassive
+  blackHoles: { min: 3 * 1.989e30, max: 10e9 * 1.989e30, alpha: -3.0 }  // Stellar to supermassive
   };
 
   let astroRandom = Math.random();
@@ -88,7 +88,6 @@ function generateCelestialObjects() {
 
 /*
 Class Particle:
-
 */ 
 
 
@@ -111,7 +110,8 @@ class Particle {
   }
 
   _getSquareDistance(particle) {
-    return (Math.pow(this.position.x - particle.position.x, 2) + Math.pow(this.position.y - particle.position.y, 2))*DISTANCE_NORMALIZATION;
+    return (Math.pow((this.position.x - particle.position.x)*DISTANCE_NORMALIZATION, 2) 
+      + Math.pow((this.position.y - particle.position.y)*DISTANCE_NORMALIZATION, 2));
   }
 
   // Helpfully, JavaScript's Math.atan2() function returns the angle in radians in the correct quadrant
@@ -120,7 +120,7 @@ class Particle {
   }
 
   _getForce(particle) {
-    return G * this.mass * particle.mass / this._getSquareDistance(particle);
+    return G * this.mass * particle.mass / (this._getSquareDistance(particle)+ 1);
   }
   //
   
@@ -129,9 +129,7 @@ class Particle {
     this.speed.i += this.force.i / this.mass * deltaTime;
     this.speed.j += this.force.j / this.mass * deltaTime;
 
-    // Apply friction
-    this.speed.i -= this.speed.i * FRICTION_COEFFICIENT;
-    this.speed.j -= this.speed.j * FRICTION_COEFFICIENT;
+
   }
   
   setPosition(particles, deltaTime) {
@@ -146,16 +144,36 @@ class Particle {
     });
     this._setSpeed(deltaTime);
 
-    this.position.x += this.speed.i * deltaTime;
-    this.position.y += this.speed.j * deltaTime;
+    this.position.x += this.speed.i * deltaTime/DISTANCE_NORMALIZATION;
+    this.position.y += this.speed.j * deltaTime/DISTANCE_NORMALIZATION;
 
     // Check for boundary crossing and wrap around
-    this.position.x = this.position.x < 0 ? this.position.x % this.canvas.width : this.position.x;
-    this.position.y = this.position.y < 0 ? this.position.y % this.canvas.height : this.position.y;
+    this.position.x = this.position.x < 0 ? this.position.x + this.canvas.width : this.position.x;
+    this.position.y = this.position.y < 0 ? this.position.y + this.canvas.height : this.position.y;
     this.position.x = this.position.x > this.canvas.width ? this.position.x % this.canvas.width : this.position.x;
     this.position.y = this.position.y > this.canvas.height ? this.position.y % this.canvas.height : this.position.y;
 
   };
+
+  isCollision(particles) {
+     for (let particle of particles){
+      if (particle != this) {
+        if(Math.abs(particle.position.x - this.position.x) < 5 && Math.abs(particle.position.y - this.position.y) < 5){
+          if(particle.mass < this.mass){
+            this.mass += particle.mass;
+            console.log("deleted you", this.mass);
+            return particle;
+          }else{
+            particle.mass += this.mass;
+            console.log("deleted self", this.mass);
+          return this;
+        }
+        }
+      }
+      
+    };
+    return null;
+  }
 
 }
 
@@ -296,32 +314,45 @@ class CanvasBackgroundSystemController {
   }
 
   animate(currentTime=0) {
-    let deltaTime = currentTime/DELTA_TIME_NORMALIZATION - this.lastTime;
-    this.lastTime = currentTime/DELTA_TIME_NORMALIZATION;
+    let deltaTime = currentTime*DELTA_TIME_NORMALIZATION - this.lastTime;
+    this.lastTime = currentTime*DELTA_TIME_NORMALIZATION;
 
-    console.log("Animating... Delta Time:", deltaTime);
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     let particles = this.database.getParticles();
     particles.forEach(particle => {
       particle.setPosition(particles, deltaTime);
-      console.log("Particle Position:", particle.position); 
+    });
+    let removeList = [];
+    particles.forEach(particle => {
+      let collision = particle.isCollision(particles);
+      
+      if (collision != null) {
+        removeList.push(collision);
+      }
+    });
+
+    removeList.forEach(particle => {
+      this.database.removeParticle(particle);
+    });
+      
+    particles.forEach(particle => {
       this.ctx.beginPath();
       this.ctx.arc(
         particle.position.x, 
         particle.position.y, 
-        Math.log(particle.mass)/DENSITY, 
+        Math.log10(particle.mass-0.5e10)/DENSITY, 
         0, 
         Math.PI * 2
       );
       this.ctx.fillStyle = WHITE;
-      if (particle.mass >5.97e25) {
+      if (particle.mass >5.97e24) {
         this.ctx.fillStyle = GREEN;
       }
       if (particle.mass > 3 * 1.989e30){
         this.ctx.fillStyle = BLUE0;
       }
-      if (particle.getSpeedModule() > 10e8) {
+      if (particle.getSpeedModule() > 10e7) {
         this.ctx.fillStyle = ORANGE;
       }
 

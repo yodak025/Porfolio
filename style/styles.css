@@ -35,6 +35,7 @@ different displays presetted as None
     background-color: var(--blue2);
     padding: 30px;
     margin: 30px;
+    border-radius: 10px;
 }
 
 .selector{

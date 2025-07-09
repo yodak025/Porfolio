@@ -1,3 +1,30 @@
+.paragraph.technologies{
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    height: 40vh;
+    width: 45vw;
+}
+
+.decoration-icons{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange);
+
+    padding-left: 2.5vh;
+    padding-right: 2.5vh;
+    height: 40vh;
+    
+    
+}
+
+
+#technologies{
+    height: 70vh;
+}
+
 #technologies-selector{
     display: flex;
     flex-direction: row;
@@ -5,21 +32,10 @@
     align-items: center;
     flex-wrap: wrap;
     background-color: var(--blue1);
-    margin: 30px;
+    margin-bottom: 30px;
+    width: 57vw;
     
 }
-
-.decoration-icons{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--orange);
-    
-    padding:50px;
-}
-
-
 
 /*
 different displays presetted as None

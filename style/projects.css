@@ -1,3 +1,10 @@
+#projects{
+    height:fit-content;
+}
+
+.display.projects{
+}
+
 .card{
     margin: 10px;
     padding: 10px;
@@ -5,6 +12,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
     background-color:var(--white);
     color: var(--black);
+}
+
+.paragraph.projects{
+    width: 40vw;
 }
 
 /*
