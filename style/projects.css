@@ -1,21 +1,204 @@
 #projects{
-    height:fit-content;
+    height: fit-content;
+    min-height: 70vh;
+    animation: projectsSlideIn 1s ease-out 0.2s both;
 }
 
 .display.projects{
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
 .card{
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    background-color:var(--white);
+    margin: 15px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        0 5px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--white), #f8f9fa);
     color: var(--black);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    cursor: pointer;
+    border: 1px solid transparent;
+    min-width: 300px;
+    max-width: 400px;
+    animation: cardFadeIn 0.6s ease-out both;
+}
+
+.card:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--orange), var(--green));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 15px 35px rgba(67, 154, 134, 0.2);
+    border-color: rgba(67, 154, 134, 0.3);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(67, 154, 134, 0.1), transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+}
+
+.card:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
+.card h3 {
+    color: var(--blue1);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+    color: var(--green);
+}
+
+.card p {
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.card:hover p {
+    color: var(--blue0);
+}
+
+.card .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.card .tech-tag {
+    background: linear-gradient(135deg, var(--green), var(--blue2));
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.card:hover .tech-tag {
+    background: linear-gradient(135deg, var(--orange), var(--green));
+    transform: scale(1.05);
 }
 
 .paragraph.projects{
     width: 40vw;
+    min-height: 300px;
+    transition: all 0.3s ease;
+    position: relative;
+    animation: paragraphSlideIn 0.8s ease-out 0.3s both;
+}
+
+.paragraph.projects:hover {
+    background: linear-gradient(135deg, #f8f9fa, var(--white));
+}
+
+/* Efectos especiales para los estados de proyecto */
+.project-item {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease;
+}
+
+.project-item.active {
+    opacity: 1;
+    transform: translateX(0);
+    animation: projectSlideIn 0.8s ease-out;
+}
+
+.project-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.project-btn {
+    background: linear-gradient(135deg, var(--blue2), var(--blue1));
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-btn:hover::before {
+    left: 100%;
+}
+
+.project-btn:hover {
+    background: linear-gradient(135deg, var(--green), var(--orange));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(67, 154, 134, 0.4);
+}
+
+.project-btn.active {
+    background: linear-gradient(135deg, var(--orange), var(--green));
+    box-shadow: 0 5px 15px rgba(238, 99, 82, 0.4);
 }
 
 /*
@@ -24,24 +207,99 @@ different displays presetted as None
 
 #mastermind{
     display: none;
+    animation: fadeInProject 0.5s ease-out;
 }
 
 #pacman{
     display: none;
+    animation: fadeInProject 0.5s ease-out;
 }
 
 #house{
     display: none;
+    animation: fadeInProject 0.5s ease-out;
 }
 
 #pia{
     display: none;
+    animation: fadeInProject 0.5s ease-out;
 }
 
 #streamer{
     display: none;
+    animation: fadeInProject 0.5s ease-out;
 }
 
 #naive-vocals{
     display: none;
+    animation: fadeInProject 0.5s ease-out;
+}
+
+/* Keyframes */
+@keyframes projectsSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes paragraphSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes projectSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotateY(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+    }
+}
+
+@keyframes fadeInProject {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        min-width: 250px;
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .paragraph.projects {
+        width: 85vw;
+    }
 }

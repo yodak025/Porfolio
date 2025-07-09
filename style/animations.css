@@ -1,0 +1,344 @@
+/* =========================================
+   ANIMACIONES GLOBALES Y EFECTOS ESPECIALES
+   ========================================= */
+
+/* Smooth scrolling mejorado */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Cursor personalizado */
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(67,154,134,0.8)" stroke="rgba(238,99,82,0.6)" stroke-width="2"/></svg>'), auto;
+}
+
+a, button, .icon, .card, .skill-btn, .project-btn, .tech-selector-btn {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(238,99,82,0.8)" stroke="rgba(67,154,134,0.6)" stroke-width="2"/></svg>'), pointer !important;
+}
+
+/* Efectos de partículas flotantes */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, var(--green), transparent);
+    border-radius: 50%;
+    animation: floatParticle 15s infinite linear;
+    opacity: 0.3;
+}
+
+.particle:nth-child(even) {
+    background: radial-gradient(circle, var(--orange), transparent);
+    animation-duration: 20s;
+}
+
+.particle:nth-child(3n) {
+    width: 2px;
+    height: 2px;
+    animation-duration: 12s;
+}
+
+/* Efecto de ondas en hover para secciones */
+.section {
+    position: relative;
+    overflow: hidden;
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(67, 154, 134, 0.1), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    pointer-events: none;
+}
+
+.section:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
+/* Texto con efecto typewriter global */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--green);
+    white-space: nowrap;
+    animation: typewriterEffect 3s steps(40) 1s both, blinkCursor 1s infinite 4s;
+}
+
+/* Efectos de entrada escalonados para listas */
+.staggered-entrance > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: staggeredSlideIn 0.6s ease-out both;
+}
+
+.staggered-entrance > *:nth-child(1) { animation-delay: 0.1s; }
+.staggered-entrance > *:nth-child(2) { animation-delay: 0.2s; }
+.staggered-entrance > *:nth-child(3) { animation-delay: 0.3s; }
+.staggered-entrance > *:nth-child(4) { animation-delay: 0.4s; }
+.staggered-entrance > *:nth-child(5) { animation-delay: 0.5s; }
+.staggered-entrance > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Efecto parallax suave */
+.parallax-element {
+    transition: transform 0.1s ease-out;
+}
+
+/* Efectos de glassmorphism mejorados */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Efectos de neomorfismo */
+.neomorphism {
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    box-shadow: 
+        20px 20px 40px #bebebe,
+        -20px -20px 40px #ffffff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.neomorphism:hover {
+    box-shadow: 
+        10px 10px 20px #bebebe,
+        -10px -10px 20px #ffffff;
+}
+
+/* Animación de carga de página */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--blue0), var(--blue1));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: pageLoaderFade 1s ease-out 2s forwards;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(67, 154, 134, 0.3);
+    border-top: 4px solid var(--green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Efectos de scroll suaves */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--orange));
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+/* Efectos de hover especiales para iconos */
+.icon-hover-effect {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.icon-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(67, 154, 134, 0.3), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.icon-hover-effect:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+/* Keyframes para todas las animaciones */
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes typewriterEffect {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    0%, 50% {
+        border-right-color: var(--green);
+    }
+    51%, 100% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes staggeredSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pageLoaderFade {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animaciones de texto creativas */
+.text-wave {
+    display: inline-block;
+    animation: textWave 2s ease-in-out infinite;
+}
+
+.text-wave:nth-child(1) { animation-delay: 0.1s; }
+.text-wave:nth-child(2) { animation-delay: 0.2s; }
+.text-wave:nth-child(3) { animation-delay: 0.3s; }
+.text-wave:nth-child(4) { animation-delay: 0.4s; }
+.text-wave:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes textWave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Efectos de pulso para elementos importantes */
+.pulse-effect {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(67, 154, 134, 0.3);
+    }
+    100% {
+        box-shadow: 
+            0 0 20px rgba(67, 154, 134, 0.6),
+            0 0 30px rgba(238, 99, 82, 0.3);
+    }
+}
+
+/* Animación de rebote suave */
+.bounce-soft {
+    animation: bounceSoft 2s ease-in-out infinite;
+}
+
+@keyframes bounceSoft {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Efectos de escala en hover para cards */
+.scale-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-hover:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* Animación de rotación suave */
+.rotate-hover {
+    transition: transform 0.3s ease;
+}
+
+.rotate-hover:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* Media queries para animaciones responsivas */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .particle {
+        display: none;
+    }
+    
+    .section::after {
+        display: none;
+    }
+    
+    .scale-hover:hover {
+        transform: scale(1.02) translateY(-5px);
+    }
+}
