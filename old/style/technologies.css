@@ -1,0 +1,377 @@
+.paragraph.technologies{
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    height: 40vh;
+    width: 45vw;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: techParagraphSlide 0.8s ease-out 0.2s both;
+}
+
+.paragraph.technologies:hover {
+    background: linear-gradient(135deg, #f8f9fa, var(--white));
+    transform: scale(1.02);
+}
+
+.paragraph.technologies::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(67, 154, 134, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.paragraph.technologies:hover::before {
+    left: 100%;
+}
+
+.decoration-icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--orange), #ff7043);
+    padding-left: 2.5vh;
+    padding-right: 2.5vh;
+    height: 40vh;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: decorationIconsFloat 0.8s ease-out 0.4s both;
+    box-shadow: 0 15px 35px rgba(238, 99, 82, 0.3);
+}
+
+.decoration-icons:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(238, 99, 82, 0.4);
+}
+
+.decoration-icons::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    animation: decorationPulse 4s ease-in-out infinite;
+}
+
+.decoration-icons .icon {
+    filter: brightness(1.2) drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+.decoration-icons .icon:hover {
+    transform: scale(1.3) rotate(10deg);
+    filter: brightness(1.5) drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4));
+}
+
+.decoration-icons .icon:nth-child(1) { animation-delay: 0s; }
+.decoration-icons .icon:nth-child(2) { animation-delay: 0.5s; }
+.decoration-icons .icon:nth-child(3) { animation-delay: 1s; }
+
+#technologies{
+    height: 70vh;
+    animation: technologiesSlideIn 1s ease-out both;
+}
+
+#technologies-selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, var(--blue1), var(--blue0));
+    margin-bottom: 30px;
+    width: 57vw;
+    border-radius: 25px;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: selectorSlideUp 0.8s ease-out 0.3s both;
+}
+
+#technologies-selector::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(67, 154, 134, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+#technologies-selector:hover::before {
+    transform: translateX(100%);
+}
+
+.tech-selector-btn {
+    background: linear-gradient(135deg, var(--blue2), var(--green));
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    min-width: 120px;
+}
+
+.tech-selector-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.tech-selector-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.tech-selector-btn:hover {
+    background: linear-gradient(135deg, var(--orange), var(--green));
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(67, 154, 134, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tech-selector-btn.active {
+    background: linear-gradient(135deg, var(--green), var(--orange));
+    box-shadow: 0 10px 25px rgba(238, 99, 82, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.tech-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.tech-item.active {
+    opacity: 1;
+    transform: translateY(0);
+    animation: techItemFadeIn 0.8s ease-out;
+}
+
+.tech-content {
+    position: relative;
+    z-index: 2;
+}
+
+.tech-content h3 {
+    color: var(--blue1);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.tech-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--orange));
+    border-radius: 2px;
+}
+
+.tech-content p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: var(--blue0);
+}
+
+.tech-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.tech-features li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+    color: var(--blue0);
+    transition: all 0.3s ease;
+}
+
+.tech-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.tech-features li:hover {
+    color: var(--green);
+    transform: translateX(5px);
+}
+
+/*
+different displays presetted as None
+*/
+
+#javascript{
+    display: none;
+    animation: techSlideIn 0.6s ease-out;
+}
+
+#webdev{
+    display: none;
+    animation: techSlideIn 0.6s ease-out;
+}
+
+#python{
+    display: none;
+    animation: techSlideIn 0.6s ease-out;
+}
+
+#matlab{
+    display: none;
+    animation: techSlideIn 0.6s ease-out;
+}
+
+#swift{
+    display: none;
+    animation: techSlideIn 0.6s ease-out;
+}
+
+/* Keyframes */
+@keyframes technologiesSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes selectorSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes techParagraphSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes decorationIconsFloat {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes decorationPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.1;
+    }
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
+}
+
+@keyframes techItemFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateX(0deg);
+    }
+}
+
+@keyframes techSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .paragraph.technologies {
+        width: 80vw;
+        height: auto;
+        min-height: 30vh;
+    }
+    
+    .decoration-icons {
+        height: auto;
+        min-height: 20vh;
+        padding: 20px;
+    }
+    
+    #technologies-selector {
+        width: 90vw;
+        padding: 15px;
+    }
+    
+    .tech-selector-btn {
+        min-width: 100px;
+        font-size: 0.8rem;
+        padding: 10px 16px;
+    }
+}

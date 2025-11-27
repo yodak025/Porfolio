@@ -1,0 +1,170 @@
+
+#header{
+    font-size: x-large;
+    width: 50%;
+    margin-top: 10%;
+    margin-bottom: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    
+    /* Animación de entrada elegante */
+    animation: slideInHeader 1.2s ease-out;
+    
+    /* Efecto de brillo sutil en hover */
+    transition: all 0.3s ease;
+}
+
+#header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(67, 154, 134, 0.3);
+}
+
+#header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(67, 154, 134, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+#header:hover::before {
+    opacity: 1;
+    animation: shimmer 2s infinite;
+}
+
+#header img {
+    border-radius: 50%;
+    border: 4px solid var(--green);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#header img:hover {
+    transform: scale(1.05) rotate(3deg);
+    border-color: var(--orange);
+    box-shadow: 0 15px 40px rgba(238, 99, 82, 0.4);
+}
+
+#header-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 85%;
+    animation: fadeInUp 1.5s ease-out 0.3s both;
+}
+
+#header-content h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--green), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    position: relative;
+    animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+#header-content h5 {
+    font-size: 1.2rem;
+    color: var(--white);
+    opacity: 0.9;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: typewriter 2s steps(40) 1s both;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 20px;
+    animation: bounceIn 1s ease-out 1.5s both;
+}
+
+.contact-icons .icon {
+    transition: all 0.3s ease;
+    filter: brightness(0.8) sepia(1) hue-rotate(180deg);
+}
+
+.contact-icons .icon:hover {
+    transform: translateY(-8px) scale(1.2);
+    filter: brightness(1.2) drop-shadow(0 8px 16px rgba(67, 154, 134, 0.6));
+}
+
+.contact-icons a:nth-child(1) .icon:hover { filter: brightness(1.2) sepia(1) hue-rotate(200deg) drop-shadow(0 8px 16px rgba(0, 119, 181, 0.6)); }
+.contact-icons a:nth-child(2) .icon:hover { filter: brightness(1.2) sepia(1) hue-rotate(0deg) drop-shadow(0 8px 16px rgba(234, 67, 53, 0.6)); }
+.contact-icons a:nth-child(3) .icon:hover { filter: brightness(1.2) sepia(1) hue-rotate(270deg) drop-shadow(0 8px 16px rgba(33, 31, 31, 0.6)); }
+
+/* Animaciones keyframes */
+@keyframes slideInHeader {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(67, 154, 134, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(238, 99, 82, 0.8), 0 0 30px rgba(67, 154, 134, 0.5);
+    }
+}
+
+@keyframes typewriter {
+    0% {
+        width: 0;
+        border-right: 2px solid var(--green);
+    }
+    100% {
+        width: 70%;
+        border-right: 2px solid transparent;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
