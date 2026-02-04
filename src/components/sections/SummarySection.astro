@@ -1,0 +1,16 @@
+---
+import BaseSection from "../BaseSection.astro";
+import MarkdownStyler from "../MarkdownStyler.astro";
+import * as SummaryData from "../../../cv/summary.md";
+
+const { title, visible } = SummaryData.frontmatter;
+const Content = SummaryData.Content;
+
+if (!visible) return;
+---
+
+<BaseSection title={title}>
+  <MarkdownStyler>
+    <Content />
+  </MarkdownStyler>
+</BaseSection>

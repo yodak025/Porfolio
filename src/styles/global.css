@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/* Base Styles for the 'Paper' feel */
+body {
+  @apply bg-white text-black font-sans antialiased;
+  /* Force continuous scroll, no bounce on Mac usually looks better for this style */
+  overscroll-behavior-y: none; 
+}
+
+/* Ensure the print feel */
+::selection {
+  @apply bg-black text-white;
+}

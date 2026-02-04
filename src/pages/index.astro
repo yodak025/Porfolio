@@ -1,11 +1,42 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Specific Section Components
+import ContactSection from "../components/sections/ContactSection.astro";
+import SummarySection from "../components/sections/SummarySection.astro";
+import EducationSection from "../components/sections/EducationSection.astro";
+import WorkExperienceSection from "../components/sections/WorkExperienceSection.astro";
+import ProjectsSection from "../components/sections/ProjectsSection.astro";
+import HardSkillsSection from "../components/sections/HardSkillsSection.astro";
+import SoftSkillsSection from "../components/sections/SoftSkillsSection.astro";
+import LanguagesSection from "../components/sections/LanguagesSection.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="CV">
+  <!-- HEADER & SUMMARY (Full Width) -->
+  <ContactSection />
+  <SummarySection />
+
+  <!-- MAIN CONTENT GRID (70% Left | 30% Right) -->
+  <div class="grid grid-cols-1 md:grid-cols-10 gap-y-8 md:gap-x-12 mb-8">
+    <!-- LEFT COLUMN (Education + Work) -->
+    <div
+      class="md:col-span-7 md:border-r md:border-gray-300 md:pr-12 flex flex-col gap-0"
+    >
+      <EducationSection />
+      <WorkExperienceSection />
+    </div>
+
+    <!-- RIGHT COLUMN (Languages + Skills) -->
+    <div class="md:col-span-3 flex flex-col gap-0">
+      <LanguagesSection />
+      <HardSkillsSection />
+      <SoftSkillsSection />
+    </div>
+  </div>
+
+  <!-- PROJECTS (Full Width, Bottom) -->
+  <div class="pt-8 border-t border-gray-300">
+    <ProjectsSection />
+  </div>
 </Layout>

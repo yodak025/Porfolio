@@ -1,0 +1,16 @@
+---
+import BaseSection from "../BaseSection.astro";
+import MarkdownStyler from "../MarkdownStyler.astro";
+import * as WorkExperienceData from "../../../cv/workExperience.md";
+
+const { title, visible } = WorkExperienceData.frontmatter;
+const Content = WorkExperienceData.Content;
+
+if (!visible) return;
+---
+
+<BaseSection title={title}>
+  <MarkdownStyler removeParagraphSpacing={true}>
+    <Content />
+  </MarkdownStyler>
+</BaseSection>

@@ -1,0 +1,33 @@
+---
+import BaseSection from "../BaseSection.astro";
+import MarkdownStyler from "../MarkdownStyler.astro";
+import * as ProjectsData from "../../../cv/projects.md";
+
+const { title, visible } = ProjectsData.frontmatter;
+const compiledHtml = await ProjectsData.compiledContent();
+
+if (!visible) return;
+
+// Logic to split the HTML by <h2> tags and wrap each project
+// We split by <h2, but we need to keep the delimiter.
+// A simple split might lose the tag, so we use a regex or just careful string manipulation.
+// Since compiledContent returns a string, we can split by '<h2>'.
+// The first chunk might be empty or contain preamble if any.
+const projects = compiledHtml
+  .split("<h2")
+  .filter((chunk) => chunk.trim().length > 0);
+---
+
+<BaseSection title={title}>
+  <div class="md:columns-2 gap-8 space-y-8">
+    <MarkdownStyler removeParagraphSpacing={true}>
+      {
+        projects.map((project) => (
+          <article class="break-inside-avoid mb-8">
+            <div set:html={"<h2" + project} />
+          </article>
+        ))
+      }
+    </MarkdownStyler>
+  </div>
+</BaseSection>

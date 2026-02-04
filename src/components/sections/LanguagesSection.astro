@@ -1,0 +1,12 @@
+---
+import BaseSection from "../BaseSection.astro";
+import MarkdownStyler from "../MarkdownStyler.astro";
+
+const { title } = Astro.props.frontmatter;
+---
+
+<BaseSection title={title}>
+  <MarkdownStyler>
+    <slot />
+  </MarkdownStyler>
+</BaseSection>

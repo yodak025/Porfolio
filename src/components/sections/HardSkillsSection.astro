@@ -1,0 +1,16 @@
+---
+import BaseSection from "../BaseSection.astro";
+import MarkdownStyler from "../MarkdownStyler.astro";
+import * as HardSkillsData from "../../../cv/hardSkills.md";
+
+const { title, visible } = HardSkillsData.frontmatter;
+const Content = HardSkillsData.Content;
+
+if (!visible) return;
+---
+
+<BaseSection title={title}>
+  <MarkdownStyler>
+    <Content />
+  </MarkdownStyler>
+</BaseSection>
