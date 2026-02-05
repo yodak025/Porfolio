@@ -4,12 +4,7 @@ visible: true
 order: 2
 ---
 
-## Senior Audio Engineer
-**SoundCorp Inc. | 2023 - Present**
+## Video Engineer and Developer Apprentice 
+**Telefonica Video Core Technologies | 2025 - Present**
 
-Lead engineer for spatial audio rendering engine. Optimized DSP algorithms reducing CPU load by 40%, mentored junior developers in C++ and Python, and integrated WebRTC for real-time collaborative mixing tools.
-
-## Software Developer Intern
-**TechSolutions S.L. | 2022 - 2023**
-
-Developed internal tools for automated testing. Built a dashboard using React and Node.js and automated deployment pipelines with GitHub Actions.
+Apprentice within the Video Core Technologies team, contributing to the Video on Demand platform. Developing Python components for content packaging and encryption, including CBCS schemes. Interacting with third-party encoder configurations and handling formats such as DASH, HLS, CMAF, and FMP4. Gaining expertise in CMAF Low Latency architectures and applying professional software development practices.
