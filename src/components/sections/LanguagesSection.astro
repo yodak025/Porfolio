@@ -2,11 +2,16 @@
 import BaseSection from "../BaseSection.astro";
 import MarkdownStyler from "../MarkdownStyler.astro";
 
-const { title } = Astro.props.frontmatter;
+import * as LanguagesData from "../../../cv/languages.md";
+
+const { title, visible } = LanguagesData.frontmatter;
+const Content = LanguagesData.Content;
+
+if (!visible) return;
 ---
 
 <BaseSection title={title}>
   <MarkdownStyler>
-    <slot />
+    <Content />
   </MarkdownStyler>
 </BaseSection>

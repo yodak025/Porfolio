@@ -2,11 +2,16 @@
 import BaseSection from "../BaseSection.astro";
 import MarkdownStyler from "../MarkdownStyler.astro";
 
-const { title } = Astro.props.frontmatter;
+import * as EducationData from "../../../cv/education.md";
+
+const { title, visible } = EducationData.frontmatter;
+const Content = EducationData.Content;
+
+if (!visible) return;
 ---
 
 <BaseSection title={title}>
   <MarkdownStyler removeParagraphSpacing={true}>
-    <slot />
+    <Content />
   </MarkdownStyler>
 </BaseSection>

@@ -1,19 +1,6 @@
 ---
 // Receives the Frontmatter of the contactInfo.md file
-interface Props {
-  frontmatter: {
-    name: string;
-    role: string;
-    email: string;
-    phone: string;
-    location: string;
-    linkedin?: string;
-    github?: string;
-    web?: string;
-  };
-}
-
-const { frontmatter } = Astro.props;
+import { frontmatter } from "../../../cv/contactInfo.md";
 ---
 
 <header class="mb-10 border-b-4 border-black pb-6">

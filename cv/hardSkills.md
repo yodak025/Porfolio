@@ -4,6 +4,6 @@ visible: true
 order: 5
 ---
 - **Programming:** Python, JavaScript/TypeScript.
-- **Web:** HTML5, CSS3, React, Astro, TailwindCSS, WebRTC, Three.js.
-- **Tools:** Git, Docker, Linux, VS Code.
-- **Organization:** Scrum, Kanban, Jira, GTD, Zettelkasten.
+- **Web:** Next.js, Astro.js, TailwindCSS, WebRTC, Three.js.
+- **Tools:** Git, Docker, Bash.
+- **Organization:** Scrum, Kanban, Jira, Notion.
