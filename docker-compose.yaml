@@ -1,0 +1,12 @@
+services: 
+  portfolio
+    image: portfolio:latest 
+    build: .
+    container_name: portfolio_dc
+    environment:
+      - VIRTUAL_HOST=diegosota.duckdns.org 
+      - LETSENCRYPT_HOST=diegosota.duckdns.org
+    ports:
+      - "80:4321"
+    
+
