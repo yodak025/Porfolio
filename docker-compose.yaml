@@ -1,12 +1,26 @@
-services: 
-  portfolio:
-    image: portfolio:latest 
-    build: .
-    container_name: portfolio_dc
-    environment:
-      - VIRTUAL_HOST=diegosota.duckdns.org 
-      - LETSENCRYPT_HOST=diegosota.duckdns.org
-    ports:
-      - "80:4321"
-    
+# =============================================================================
+# docker-compose.yaml — Portfolio (Astro → Static Nginx)
+# =============================================================================
+# Standalone:   docker compose --profile standalone up -d --build
+# Orchestrated: docker compose up -d --build  (launched from LTAW-Practicas)
+# =============================================================================
 
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=portfolio.yourdomain.com
+      - LETSENCRYPT_HOST=portfolio.yourdomain.com
+    networks:
+      - web-proxy
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  # When orchestrated, this network is created by the main docker-compose.
+  # When standalone, it must exist or be created externally.
+  web-proxy:
+    external: true

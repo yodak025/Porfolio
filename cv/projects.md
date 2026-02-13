@@ -12,10 +12,14 @@ A 3D interpretation of Pac-Man running natively in the browser. Built with Nextj
 ## Rustic Streamer 
 **A full stack decentraliced video application concept using WebRTC**
 
-As an ambicious practice during my degree, I developed a conceptual decentraliced video application ussing raw Python. The application is built with a WebRTC library and a functional implementation of SIP. It uses advanced OOP composition tecniques. [Check it out!](https://github.com/yodak025/RusticStreamer)
+As an ambicious practice during my degree, I developed a conceptual decentraliced video application ussing raw Python. The application is built with a WebRTC library and a functional implementation of SIP. It uses advanced OOP composition tecniques. [You can find it Here!](https://github.com/yodak025/RusticStreamer)
 
 ## Rustic Twingo Encoder 
 **An audio transcoder ussing ffmpeg**
 
 This weekend project is a sample of my pragmatic approach to software development. This FFMPEG wrapper is a simple implementation of a audio transcoder using ffmpeg. It started from my real need to use an application to transcode audio files to a specific format for my car vintage radio. It is a simple and effective solution that I use daily. It was fully developed using AI Agentic tools. [Source code is available on github](https://github.com/yodak025/rustic-twingo-encoder).
 
+## Yodak's Projects
+**A collection of some of my web applications deployed**
+
+As a more interactive way to show some of my projects, I have created a collection of web applications that I have developed and deployed. This collection includes Chomp Crawler, this portfolio, as well as some other smaller projects that I have developed for fun or as practice. [Check it out!](https://yodakprojects.duckdns.org/)
