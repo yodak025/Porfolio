@@ -1,5 +1,5 @@
 services: 
-  portfolio
+  portfolio:
     image: portfolio:latest 
     build: .
     container_name: portfolio_dc
